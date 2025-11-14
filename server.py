@@ -10,22 +10,20 @@ load_dotenv()
 serverSocket = socket(AF_INET, SOCK_STREAM)
 
 # Prepara o socket do servidor
-#Fill in start
 HOST = os.getenv("HOST")
 PORT = os.getenv("PORT")
-#Fill in end
 
 while True:
-    # Estabelece a conexão
+    # Establishing the connection
     print('\nReady to serve...')
     connectionSocket, addr = serverSocket.accept()
-    """
-        - connectionSocket: new socket created by the OS for communication with that specific client
-    """
+    # - connectionSocket: new socket created by the OS for communication with that specific client
+    # - addr: address of the client; a tuple containing their IP and port
 
     try:
         # Recebe a mensagem do cliente (requisição HTTP)
-        message = 
+        # Receiving the message from the client (HTTP requisition)
+        message = connectionSocket.recv(1024).decode('utf-8')
 
         filename = message.split()[1]
 
