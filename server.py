@@ -36,11 +36,6 @@ try:
             response = "HTTP/1.1 200 OK\r\n\r\n" + outputdata
             connectionSocket.sendall(response.encode())
 
-            # Sending the html file contents to the client
-            for i in range(0, len(outputdata)): 
-                connectionSocket.send(outputdata[i].encode()) 
-                connectionSocket.send("\r\n".encode())
-
             connectionSocket.close()
         except IOError:
             response = "HTTP/1.1 404 NOT FOUND\r\n\r\n"
